@@ -697,6 +697,14 @@ let updateChecker;
 						});
 						break;
 					}
+					case 'TvChannel': {
+						rpc.setActivity({
+							details: 'Watching Live TV',
+							state: NPItem.Name,
+							...defaultProperties
+						});
+						break;
+					}
 					default:
 						rpc.setActivity({
 							details: 'Watching Other Content',
