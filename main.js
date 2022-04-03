@@ -203,9 +203,9 @@ let updateChecker;
 
 	const toggleDisplay = async () => {
 		store.set('doDisplayStatus', !store.get('doDisplayStatus'));
-		
+
 		const doDisplay = store.get('doDisplayStatus');
-		
+
 		logger.debug(`doDisplayStatus: ${doDisplay}`);
 		if (!doDisplay && rpc) await rpc.clearActivity();
 	};
@@ -270,11 +270,11 @@ let updateChecker;
 				? { ...savedServer, isSelected: true }
 				: { ...savedServer, isSelected: false };
 		});
-			
+
 		store.set('servers', servers);
 
 		tray.setContextMenu(buildTrayMenu(servers));
-		
+
 		mainWindow.webContents.send('RECEIVE_TYPE', server.serverType);
 
 		await stopPresenceUpdater();
@@ -620,9 +620,7 @@ let updateChecker;
 
 				const defaultProperties = {
 					largeImageKey: 'large',
-					largeImageText: `${
-						NPItem.Type === 'Audio' ? 'Listening' : 'Watching'
-					} on ${session.Client}`,
+					largeImageText: `Karna.ge | The Exclusive Streaming Community.`,
 					smallImageKey: session.PlayState.IsPaused ? 'pause' : 'play',
 					smallImageText: session.PlayState.IsPaused ? 'Paused' : 'Playing',
 					instance: false
@@ -864,7 +862,7 @@ let updateChecker;
 	// 			title: name,
 	// 			detail: 'An error occured and we failed to fetch the connect servers linked to your account, please try again later.'
 	// 		});
-			
+
 	// 		return event.reply('CONNECT_ERROR');
 	// 	}
 
@@ -971,7 +969,7 @@ let updateChecker;
 							'Your server has been successfully added. Would you like to select it automatically?',
 						buttons: ['Yes', 'No']
 					});
-		
+
 					if (res.response === 0) {
 						selectServer(newServer);
 					}
